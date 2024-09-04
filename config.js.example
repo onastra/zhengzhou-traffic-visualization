@@ -1,0 +1,5 @@
+const config = {
+    neo4jUri: "your_neo4j_uri_here",
+    neo4jUser: "your_neo4j_username_here",
+    neo4jPassword: "your_neo4j_password_here"
+};

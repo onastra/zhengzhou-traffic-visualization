@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>郑州市交通优化可视化系统</title>
+    <script src="config.js"></script>
     <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=0w8W4vPTaRFyzlaSSxnARGdEYpdqnDEs"></script>
     <script src="https://cdn.jsdelivr.net/npm/neo4j-driver@4.4.5/lib/browser/neo4j-web.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.2/dist/vis-network.min.js"></script>
@@ -181,9 +182,9 @@
 
         // 初始化Neo4j连接
         const driver = neo4j.driver(
-            "neo4j+s://2a56d1a1.databases.neo4j.io",
-            neo4j.auth.basic("neo4j", "D9epnxYFGtyIyFsGcf6j9sIjG0npVulZ7GqoMobspO8")
-        );
+    config.neo4jUri,
+    neo4j.auth.basic(config.neo4jUser, config.neo4jPassword)
+);
 
         async function runQuery(query, params = {}) {
             const session = driver.session();
